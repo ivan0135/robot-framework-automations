@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.6 on win32)" generated="2024-10-03T15:18:48.984902" rpa="false" schemaversion="5">
+<suite id="s1" name="CasdastroTecnicos" source="C:\Users\ivan.santos\Downloads\TesteManutencaoPredialAUTO\Administrativo\CasdastroTecnicos.robot">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-10-03T15:18:49.146900" level="INFO">Opening browser 'chrome' to base url 'https://homologacao.spdmpais.org.br/ManutPredial/Autenticacao/Login'.</msg>
+<arg>${Ambiente_ManutencaoPredial}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-10-03T15:18:49.146900" elapsed="2.752259"/>
+</kw>
+<test id="s1-t1" name="Cenario 01" line="30">
+<kw name="Login no ambiente" owner="PageObjets">
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-10-03T15:18:51.901162" elapsed="0.273203"/>
+</kw>
+<kw name="Set Screenshot Directory" owner="SeleniumLibrary">
+<arg>${capturasDeTela}</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" start="2024-10-03T15:18:52.174365" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:18:52.175365" level="INFO">Typing text '620026901' into text field '//input[@id='Login']'.</msg>
+<arg>${CampoLogin}</arg>
+<arg>${User}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:18:52.174365" elapsed="0.055000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:18:52.230366" level="INFO">Typing text 'Ique2507!' into text field '//input[@id='Senha']'.</msg>
+<arg>${CampoSenha}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:18:52.230366" elapsed="0.038999"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:18:52.270366" level="INFO">Clicking element '//button[normalize-space()='Login']'.</msg>
+<arg>${Entrar}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:18:52.269365" elapsed="1.541723"/>
+</kw>
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:18:53.828093" level="INFO">${Titulo} = Engenharia predial</msg>
+<var>${Titulo}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2024-10-03T15:18:53.812088" elapsed="0.016005"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-03T15:18:53.828093" level="INFO">Login efetuado com sucesso</msg>
+<arg>Login efetuado com sucesso</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-03T15:18:53.828093" elapsed="0.000000"/>
+</kw>
+<arg>'Engenharia predial' == '${Titulo}'</arg>
+<arg>Log</arg>
+<arg>Login efetuado com sucesso</arg>
+<arg>ELSE</arg>
+<arg>Log</arg>
+<arg>Login não validado</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-10-03T15:18:53.828093" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-10-03T15:18:51.901162" elapsed="1.926931"/>
+</kw>
+<kw name="Acessando a funcionalidade">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:18:53.829088" level="INFO">Clicking element '//a[@id="ddlCadastros"]'.</msg>
+<arg>${BtnAdministrativo}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:18:53.829088" elapsed="0.032000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:18:53.861088" level="INFO">Clicking element '//a[@href="/ManutPredial/Tecnico/index"]'.</msg>
+<arg>${BtnCadastroTecnicos}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:18:53.861088" elapsed="0.147720"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Cadastro de técnicos</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-10-03T15:18:54.008808" elapsed="0.008000"/>
+</kw>
+<status status="PASS" start="2024-10-03T15:18:53.828093" elapsed="0.188715"/>
+</kw>
+<kw name="Cadastrando um tecnico">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:18:54.017812" level="INFO">Clicking element '//button[@id='btnTecnico']'.</msg>
+<arg>${BtnCadastrarNewTecnico}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:18:54.017812" elapsed="0.502435"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CadastroNewTecModal}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-03T15:18:54.520247" elapsed="0.878410"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:18:55.398657" level="INFO">Typing text 'IVANI CORREIA DE SANTANA' into text field '//input[@id='inptTecnico']'.</msg>
+<arg>//input[@id='inptTecnico']</arg>
+<arg>IVANI CORREIA DE SANTANA</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:18:55.398657" elapsed="0.050999"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-03T15:18:56.450804" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-03T15:18:55.449656" elapsed="1.001148"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:18:56.451810" level="INFO">Clicking element '//div[contains(text(), 'IVANI CORREIA DE SANTANA - 6203523-04')]'.</msg>
+<arg>${Ivani}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:18:56.450804" elapsed="0.035683"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-03T15:18:57.486785" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-03T15:18:56.486487" elapsed="1.000298"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:18:57.487842" level="INFO">Clicking element '//input[@id='btnSalvar']'.</msg>
+<arg>${BtnAdicionarTEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:18:57.486785" elapsed="0.047451"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-03T15:18:58.534430" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-03T15:18:57.534236" elapsed="1.000194"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:18:58.561118" level="INFO">${texto} = Tecnico já cadastrado</msg>
+<var>${texto}</var>
+<arg>//div[@class='toast-message']</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:18:58.534430" elapsed="0.026688"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Fatal Error" owner="BuiltIn">
+<msg time="2024-10-03T15:18:58.561118" level="FAIL">AssertionError</msg>
+<doc>Stops the whole test execution.</doc>
+<status status="FAIL" start="2024-10-03T15:18:58.561118" elapsed="0.000000">AssertionError</status>
+</kw>
+<arg>'Tecnico já cadastrado' == '${texto}'</arg>
+<arg>Fatal Error</arg>
+<arg>ELSE</arg>
+<arg>Log</arg>
+<arg>User cadastrado</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2024-10-03T15:18:58.561118" elapsed="0.000000">AssertionError</status>
+</kw>
+<status status="FAIL" start="2024-10-03T15:18:54.017812" elapsed="4.543306">AssertionError</status>
+</kw>
+<status status="FAIL" start="2024-10-03T15:18:51.900161" elapsed="6.660957">AssertionError</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-10-03T15:18:58.562114" elapsed="2.102883"/>
+</kw>
+<status status="FAIL" start="2024-10-03T15:18:48.985900" elapsed="11.679097"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="CasdastroTecnicos">CasdastroTecnicos</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
